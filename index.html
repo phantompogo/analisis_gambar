@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Gambar Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^0.7.0",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1><i class="fas fa-wand-magic-sparkles"></i>Analisis Gambar Cerdas</h1>
+            <p class="app-description">Analisis Metadata Akurat Untuk Adobe Stock Dan Freepik, Gunakan Dengan Bijak Ini Gratis 100%</p>
+        </header>
+
+        <div class="my-6">
+            <label for="imageUpload" class="upload-label">Unggah Gambar Anda</label>
+            <div id="fileUploadArea" class="file-upload-area" role="button" tabindex="0" aria-label="Area unggah file gambar">
+                <input type="file" id="imageUpload" accept="image/*" class="hidden" aria-describedby="fileUploadHint">
+                <div class="upload-icon">
+                    <i class="far fa-image"></i>
+                </div>
+                <p class="upload-text">Klik atau seret gambar ke sini</p>
+                <p id="fileUploadHint" class="upload-hint">PNG, JPG, GIF, WEBP (Maks. 4MB)</p>
+            </div>
+        </div>
+        
+        <div id="imagePreviewContainer" class="image-preview-container hidden">
+            <img id="imagePreview" src="#" alt="Pratinjau Gambar" class="image-preview"/>
+        </div>
+
+        <div class="checkbox-container">
+            <label for="greenScreenCheckbox">
+                <input type="checkbox" id="greenScreenCheckbox">
+                Mode Video Green Screen
+            </label>
+            <label for="pngCheckbox">
+                <input type="checkbox" id="pngCheckbox">
+                Mode PNG (Isolasi Transparan)
+            </label>
+            <label for="animeModeCheckbox">
+                <input type="checkbox" id="animeModeCheckbox">
+                Mode Anime
+            </label>
+        </div>
+
+        <div class="detail-slider-container">
+            <label for="detailLevelSlider" class="detail-slider-label">Tingkat Detail Analisis: <span id="detailLevelValue">3</span></label>
+            <input type="range" id="detailLevelSlider" min="1" max="5" value="3" step="1" class="detail-slider">
+        </div>
+        
+        <button id="analyzeButton" class="w-full btn btn-primary py-3" disabled> 
+            Mulai Analisis Gambar
+        </button>
+
+        <div id="loadingSpinner" class="loading-spinner hidden" role="status" aria-live="polite">
+             <span class="sr-only">Memuat...</span>
+        </div>
+        
+        <div id="resultsArea" class="mt-8">
+            <div id="multipleResultsContainer" aria-live="polite">
+                <!-- Hasil analisis akan muncul di sini -->
+            </div>
+            <button id="downloadAllButton" class="w-full btn btn-secondary mt-4 py-3 hidden" disabled> 
+                <i class="fas fa-download"></i>Unduh Semua Hasil (.txt)
+            </button>
+        </div>
+    </div>
+    <div id="messageArea" class="message-box hidden" role="alert"></div>
+
+    <div class="app-version-footer">
+        <p>Versi Aplikasi 1.1 (03 Juni 2025)</p>
+    </div>
+
+    <script type="module" src="./index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
